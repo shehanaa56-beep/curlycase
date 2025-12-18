@@ -1,0 +1,153 @@
+/* Page Wrapper */
+.customcase-page {
+  padding: 60px 80px;
+  background: #ffffff;
+  font-family: 'Inter', 'Poppins', sans-serif;
+}
+
+/* Header */
+.customcase-header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 60px;
+}
+
+.customcase-header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.customcase-header p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Toolbar */
+.customcase-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  font-size: 14px;
+  color: #333;
+}
+
+.toolbar-left,
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.toolbar-btn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  color: #333;
+}
+
+.product-count {
+  margin-left: 10px;
+  color: #777;
+}
+
+/* Grid */
+.customcase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+/* Card Link */
+.customcase-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* Card */
+.customcase-card {
+  background: #f7f7f7;
+  transition: transform 0.2s ease;
+}
+
+.customcase-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Image */
+.card-image {
+  position: relative;
+  background: #e5e5e5;
+}
+
+.card-image img {
+  width: 100%;
+  display: block;
+}
+
+/* Sale Badge */
+.sale-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+/* Info */
+.card-info {
+  padding: 16px;
+}
+
+.card-info h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.old-price {
+  font-size: 13px;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.new-price {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .customcase-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .customcase-page {
+    padding: 40px 20px;
+  }
+
+  .customcase-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .customcase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .customcase-header h1 {
+    font-size: 26px;
+  }
+}

@@ -1,0 +1,262 @@
+:root {
+  --green-dark: #1f6f54;
+  --green-main: #2e7d64;
+  --text-dark: #1d2b24;
+  --border-light: #e6efe9;
+}
+
+/* ========================= */
+/* TOP BAR */
+/* ========================= */
+.topbar {
+  width: 100%;
+  overflow: hidden;
+  background: var(--green-dark);
+  color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  white-space: nowrap;
+}
+
+.topbar-track {
+  display: inline-flex;
+  gap: 40px;
+  padding: 8px 0;
+  animation: scroll-left 18s linear infinite;
+}
+
+.topbar-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.topbar-item i {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.topbar:hover .topbar-track {
+  animation-play-state: paused;
+}
+
+/* ========================= */
+/* HEADER */
+/* ========================= */
+.header {
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 6%;
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.logo-circle {
+  width: 40px;
+  height: 40px;
+  background: var(--green-main);
+  color: #ffffff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+}
+
+/* NAV LINKS */
+.nav-links {
+  display: flex;
+  gap: 36px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: var(--green-main);
+}
+
+/* ICONS */
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  cursor: pointer;
+}
+
+.icon i,
+.cart-icon i,
+.hamburger i {
+  font-size: 20px;
+}
+
+/* CART */
+.cart-icon {
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: var(--green-main);
+  color: #ffffff;
+  font-size: 12px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+/* ========================= */
+/* MOBILE MENU */
+/* ========================= */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 98;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background: #ffffff;
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+  transition: right 0.35s ease;
+  z-index: 99;
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+  align-self: flex-end;
+  font-size: 22px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+/* ========================= */
+/* HAMBURGER */
+/* ========================= */
+.hamburger {
+  display: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* ========================= */
+/* TABLET */
+/* ========================= */
+@media (max-width: 1024px) {
+  .header {
+    padding: 16px 5%;
+  }
+
+  .nav-links {
+    gap: 26px;
+  }
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+@media (max-width: 768px) {
+  .topbar {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .header {
+    padding: 14px 4%;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .logo-circle {
+    width: 36px;
+    height: 36px;
+    font-size: 15px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .header-icons {
+    gap: 18px;
+  }
+
+  .cart-count {
+    width: 16px;
+    height: 16px;
+    font-size: 11px;
+    top: -5px;
+    right: -8px;
+  }
+}
+
+/* ========================= */
+/* SMALL MOBILE */
+/* ========================= */
+@media (max-width: 480px) {
+  .topbar {
+    text-align: center;
+  }
+
+  .header-icons {
+    gap: 16px;
+  }
+}
+
+/* ========================= */
+/* ANIMATION */
+/* ========================= */
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

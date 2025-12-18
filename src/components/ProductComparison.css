@@ -1,0 +1,278 @@
+.comparison-section {
+  padding: 100px 6%;
+  background: #ffffff;
+}
+
+.comparison-title {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  margin-bottom: 10px;
+  color: #0f2e23;
+}
+
+.comparison-subtitle {
+  text-align: center;
+  color: #6b7f77;
+  margin-bottom: 60px;
+}
+
+/* TABLE */
+.comparison-table {
+  max-width: 1100px;
+  margin: auto;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid #e3efe9;
+  background: #ffffff;
+}
+
+/* ROW */
+.comparison-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  border-bottom: 1px solid #e3efe9;
+}
+
+.comparison-row:last-child {
+  border-bottom: none;
+}
+
+/* HEADER */
+.comparison-row.header {
+  background: #f6fcf9;
+  font-weight: 600;
+}
+
+/* CELL */
+.cell {
+  padding: 22px 24px;
+  font-size: 15px;
+  color: #0f2e23;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cell.feature {
+  justify-content: flex-start;
+  font-weight: 500;
+}
+
+/* HIGHLIGHT COLUMN */
+.cell.highlight {
+  flex-direction: column;
+  gap: 6px;
+  color: #1f6f54;
+}
+
+.recommended {
+  background: #1f6f54;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+/* TEXT COLORS */
+.highlight-text {
+  color: #1f6f54;
+  font-weight: 500;
+}
+
+.muted {
+  color: #7c9189;
+}
+
+/* ICONS */
+.check {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #eaf6f0;
+  color: #1f6f54;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.cross {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fdecec;
+  color: #d44c4c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .comparison-row {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .cell {
+    justify-content: flex-start;
+  }
+
+  .cell.highlight {
+    align-items: flex-start;
+  }
+}
+/* ========================= */
+/* TABLET RESPONSIVE */
+/* ========================= */
+@media (max-width: 1024px) {
+  .comparison-section {
+    padding: 80px 5%;
+  }
+
+  .comparison-title {
+    font-size: 36px;
+  }
+
+  .comparison-subtitle {
+    font-size: 15px;
+    margin-bottom: 45px;
+  }
+}
+
+/* ========================= */
+/* MOBILE RESPONSIVE */
+/* ========================= */
+@media (max-width: 768px) {
+  .comparison-section {
+    padding: 70px 4%;
+  }
+
+  .comparison-title {
+    font-size: 30px;
+  }
+
+  .comparison-subtitle {
+    font-size: 14px;
+    margin-bottom: 35px;
+  }
+
+  /* TABLE → STACKED CARDS */
+  .comparison-table {
+    border-radius: 18px;
+  }
+
+  .comparison-row {
+    grid-template-columns: 1fr;
+    padding: 10px 0;
+  }
+
+  .comparison-row.header {
+    display: none; /* hide header row */
+  }
+
+  .cell {
+    padding: 14px 18px;
+    justify-content: space-between;
+    font-size: 14px;
+  }
+
+  .cell.feature {
+    font-weight: 600;
+    border-bottom: 1px solid #e3efe9;
+  }
+
+  /* VALUE CELLS */
+  .cell:not(.feature)::before {
+    content: attr(data-label);
+    font-size: 12px;
+    color: #7c9189;
+    font-weight: 500;
+  }
+
+  .cell.highlight {
+    align-items: flex-end;
+    gap: 4px;
+  }
+}
+
+/* ========================= */
+/* SMALL MOBILE */
+/* ========================= */
+@media (max-width: 480px) {
+  .comparison-section {
+    padding: 30px 4%;
+  }
+
+  .comparison-title {
+    font-size: 22px;
+  }
+
+  .cell {
+    font-size: 13px;
+  }
+
+  .check,
+  .cross {
+    width: 2px;
+    height: 14px;
+    font-size: 12px;
+  }
+}
+/* ========================= */
+/* MOBILE – KEEP TABLE STYLE */
+/* ========================= */
+@media (max-width: 768px) {
+  .comparison-section {
+    padding: 50px 4%;
+  }
+
+  .comparison-title {
+    font-size: 26px;
+  }
+
+  .comparison-subtitle {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+
+  /* Keep table layout */
+  .comparison-table {
+    overflow-x: auto;          /* 👈 allows scroll if needed */
+    border-radius: 16px;
+  }
+
+  .comparison-row {
+    grid-template-columns: 1.2fr 1fr 1fr; /* 👈 SAME AS DESKTOP */
+    min-width: 520px; /* 👈 prevents breaking layout */
+  }
+
+  .cell {
+    padding: 12px 14px;
+    font-size: 13px;
+    justify-content: center;
+  }
+
+  .cell.feature {
+    justify-content: flex-start;
+    font-weight: 600;
+  }
+
+  .cell.highlight {
+    gap: 4px;
+  }
+
+  .recommended {
+    font-size: 10px;
+    padding: 3px 10px;
+  }
+
+  .check,
+  .cross {
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+  }
+}

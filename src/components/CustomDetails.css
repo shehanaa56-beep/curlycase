@@ -1,0 +1,331 @@
+/* ===============================
+   Custom Case Details Page Styles
+================================ */
+
+.custom-details-page {
+  background-color: #ffffff;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: 'Inter', 'Poppins', 'SF Pro Display', -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.custom-details-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* ===============================
+   LEFT – PRODUCT PREVIEW
+================================ */
+
+.product-preview {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 600px;
+}
+
+.mockup-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 600px;
+}
+
+/* Background */
+.background-pattern {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.05) 0px,
+    rgba(0, 0, 0, 0.05) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pattern-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.1);
+  letter-spacing: 2px;
+  transform: rotate(-45deg);
+}
+
+/* ===============================
+   PRINT AREA (REAL FIX)
+================================ */
+
+/* Print zone inside phone body */
+.print-area {
+  position: absolute;
+  top: 14%;
+  left: 12%;
+  width: 76%;
+  height: 72%;
+  overflow: hidden;
+  z-index: 3;
+  border-radius: 22px;
+}
+
+/* Uploaded image */
+.print-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  cursor: grab;
+  transition: transform 0.05s linear;
+}
+
+/* Placeholder text */
+.placeholder-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #666;
+  text-align: center;
+}
+
+/* Phone case image (on top) */
+.mockup-image {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Zoom buttons */
+.zoom-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 6;
+}
+
+.zoom-controls button {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: #000;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.zoom-controls button:hover {
+  background: #333;
+}
+
+/* ===============================
+   RIGHT – PRODUCT INFO
+================================ */
+
+.product-info {
+  flex: 1;
+  max-width: 500px;
+}
+
+.brand-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.product-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.pricing-area {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.old-price {
+  font-size: 18px;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.new-price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+}
+
+.sale-badge {
+  background: #000;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.pricing-helper {
+  font-size: 14px;
+  color: #666;
+  margin: 15px 0 30px;
+}
+
+/* ===============================
+   CONFIG OPTIONS
+================================ */
+
+.selector-group {
+  margin-bottom: 25px;
+}
+
+.selector-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.brand-dropdown {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.material-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.material-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 25px;
+  border: 2px solid #e0e0e0;
+  background: #fff;
+  cursor: pointer;
+}
+
+.material-btn.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+/* Quantity */
+.quantity-selector {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.qty-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #e0e0e0;
+  background: #fff;
+  cursor: pointer;
+}
+
+.qty-number {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* ===============================
+   ACTION BUTTONS
+================================ */
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.upload-btn {
+  background: #1a6a2e;
+  color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+}
+
+.add-to-cart-btn {
+  background: #000;
+  color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+}
+
+/* ===============================
+   TRUST + CHAT
+================================ */
+
+.trust-badges {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.badge {
+  font-size: 12px;
+  color: #666;
+  font-weight: 600;
+}
+
+.floating-chat-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #15703f;
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  z-index: 1000;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+  .custom-details-container {
+    flex-direction: column;
+  }
+
+  .mockup-container {
+    height: 420px;
+  }
+}

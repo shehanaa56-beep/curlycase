@@ -1,0 +1,168 @@
+.category-section {
+  padding: 90px 6%;
+  background: #ffffff;
+  text-align: center;
+}
+
+.category-title {
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  margin-bottom: 10px;
+  color: #0f2e23;
+}
+
+.category-subtitle {
+  color: #6b7f77;
+  font-size: 16px;
+  margin-bottom: 60px;
+}
+
+/* GRID */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+/* CARD */
+.category-card {
+  background: #ffffff;
+  border: 1px solid #e3efe9;
+  border-radius: 18px;
+  padding: 34px 26px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+/* ICON */
+.category-icon {
+  width: 48px;
+  height: 48px;
+  background: #eaf6f1;
+  color: #1f6f54;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 18px;
+}
+
+/* TEXT */
+.category-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: #0f2e23;
+}
+
+.category-card p {
+  font-size: 14px;
+  color: #6b7f77;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ========================= */
+/* TABLET (LARGE) */
+/* ========================= */
+@media (max-width: 1200px) {
+  .category-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ========================= */
+/* TABLET (SMALL) */
+/* ========================= */
+@media (max-width: 900px) {
+  .category-section {
+    padding: 80px 5%;
+  }
+
+  .category-title {
+    font-size: 36px;
+  }
+
+  .category-subtitle {
+    font-size: 15px;
+    margin-bottom: 45px;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .category-card {
+    padding: 28px 22px;
+  }
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+@media (max-width: 600px) {
+  .category-section {
+    padding: 10px 4%;
+  }
+
+  .category-title {
+    font-size: 20px;
+  }
+
+  .category-subtitle {
+    font-size: 10px;
+    margin-bottom: 36px;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr); /* ✅ 2 PER ROW */
+    gap: 10px;
+  }
+
+  .category-card {
+    text-align: center;
+    padding: 26px 18px;
+  }
+
+  .category-icon {
+    margin: 0 auto 14px;
+  }
+}
+
+
+/* ========================= */
+/* SMALL MOBILE */
+/* ========================= */
+@media (max-width: 420px) {
+  .category-title {
+    font-size: 26px;
+  }
+
+  .category-card h3 {
+    font-size: 17px;
+  }
+
+  .category-card p {
+    font-size: 13px;
+  }
+}
+.category-icon i {
+  font-size: 22px;
+}

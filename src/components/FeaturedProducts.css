@@ -1,0 +1,252 @@
+/* SECTION */
+.featured-section {
+  padding: 90px 6%;
+  background: #f6fcf9;
+}
+
+.featured-title {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  margin-bottom: 10px;
+  color: #0f2e23;
+}
+
+.featured-subtitle {
+  text-align: center;
+  color: #6b7f77;
+  margin-bottom: 60px;
+}
+
+/* GRID */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+/* CARD */
+.product-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 18px;
+  position: relative;
+  border: 1px solid #e3efe9;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(15, 46, 35, 0.08);
+}
+
+/* TAG */
+.product-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #1f6f54;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 14px;
+  border-radius: 999px;
+}
+
+/* IMAGE */
+.product-image {
+  background: linear-gradient(180deg, #eefaf4, #f6fcf9);
+  border-radius: 18px;
+  padding: 24px;
+  height: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+.product-image img {
+  width: 100%;
+  max-height: 230px;
+  object-fit: contain;
+}
+
+/* TEXT */
+.product-name {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #0f2e23;
+}
+
+/* PRICE */
+.product-price {
+  margin-bottom: 20px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f6f54;
+  margin-right: 10px;
+}
+
+.old-price {
+  font-size: 14px;
+  color: #9fb8ae;
+  text-decoration: line-through;
+}
+
+/* BUTTON */
+.add-cart {
+  margin-top: auto;
+  width: 100%;
+  padding: 12px;
+  border-radius: 999px;
+  border: 1px solid #b7ddd0;
+  background: #ffffff;
+  color: #0f2e23;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.add-cart:hover {
+  background: #1f6f54;
+  color: #ffffff;
+  border-color: #1f6f54;
+}
+
+/* VIEW ALL */
+.view-all {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.view-btn {
+  background: #1f6f54;
+  color: #ffffff;
+  padding: 14px 42px;
+  border-radius: 999px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ========================= */
+/* MOBILE OPTIMIZATION */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .featured-section {
+    padding: 70px 5%;
+  }
+
+  .featured-title {
+    font-size: 34px;
+  }
+
+  .featured-subtitle {
+    font-size: 15px;
+    margin-bottom: 40px;
+  }
+
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .product-card {
+    padding: 16px;
+  }
+
+  .product-image {
+    height: 220px;
+    padding: 18px;
+  }
+
+  .product-image img {
+    max-height: 190px;
+  }
+
+  .product-name {
+    font-size: 16px;
+  }
+
+  .price {
+    font-size: 16px;
+  }
+
+  .old-price {
+    font-size: 13px;
+  }
+
+  .add-cart {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* ========================= */
+/* SMALL MOBILE (PHONES) */
+/* ========================= */
+
+@media (max-width: 480px) {
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr); /* ✅ 2 PER ROW */
+    gap: 10px;
+  }
+
+  .product-image {
+    height: 150px;
+  }
+
+  .product-name {
+    font-size: 10px;
+  }
+
+  .price {
+    font-size: 14px;
+  }
+
+  .add-cart {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+/* Remove underline from product links */
+.product-card a {
+  text-decoration: none;
+  color: inherit;
+}
+/* 🔥 FORCE REMOVE UNDERLINE FROM ALL PRODUCT TEXT */
+.product-card-link,
+.product-card-link * {
+  text-decoration: none !important;
+  -webkit-text-decoration: none !important;
+  color: inherit;
+}
+.product-name,
+.product-price span {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
