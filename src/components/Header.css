@@ -260,3 +260,52 @@
     transform: translateX(-50%);
   }
 }
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f2e23;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* LOGO IMAGE */
+.logo-image {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 1px solid #e3efe9;
+  padding: 4px;
+  background: #ffffff;
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 18px;
+    gap: 10px;
+  }
+
+  .logo-image {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 17px;
+    gap: 8px;
+  }
+
+  .logo-image {
+    width: 32px;
+    height: 32px;
+    padding: 3px;
+  }
+}

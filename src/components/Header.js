@@ -37,7 +37,7 @@ export default function Header() {
       <header className="header">
         {/* LOGO */}
         <div className="logo">
-          <div className="logo-circle">C</div>
+          <img src="/images/cu.JPG" alt="Curly Case Logo" className="logo-image" />
           Curly Case
         </div>
 
