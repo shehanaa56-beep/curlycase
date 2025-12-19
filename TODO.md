@@ -1,21 +1,15 @@
-## Tasks
-- [ ] Add models and colors arrays to formData state in AdminDashboard.js
-- [ ] Add UI components for managing model options (add, edit, remove)
-- [ ] Add UI components for managing color options (add, edit, remove)
-- [ ] Update handleChange to handle model and color inputs
-- [ ] Update handleEdit to load existing models and colors
-- [ ] Update handleSubmit to save models and colors to Firestore
-- [ ] Update form reset to clear models and colors
-- [ ] Test the functionality by adding a product with models and colors
-=======
-# TODO: Add Model & Colour Options to Admin Dashboard
+# Checkout Implementation TODO
 
-## Tasks
-- [x] Add models and colors arrays to formData state in AdminDashboard.js
-- [x] Add UI components for managing model options (add, edit, remove)
-- [x] Add UI components for managing color options (add, edit, remove)
-- [x] Update handleChange to handle model and color inputs
-- [x] Update handleEdit to load existing models and colors
-- [x] Update handleSubmit to save models and colors to Firestore
-- [x] Update form reset to clear models and colors
-- [ ] Test the functionality by adding a product with models and colors
+## Completed Tasks
+- [x] Create Checkout.js component with shipping address form and order summary
+- [x] Add Checkout route in App.js
+- [x] Create Checkout.css for styling
+- [x] Import Checkout component in App.js
+- [x] Fix compilation error by creating missing Checkout.css file
+- [x] Application running successfully without errors
+
+## Pending Tasks
+- [x] Test the checkout flow by running the application
+- [ ] Verify that clicking "Proceed to Checkout" from cart navigates to checkout page
+- [ ] Ensure form validation works properly
+- [ ] Add payment integration if needed (currently just shows alert on submit)

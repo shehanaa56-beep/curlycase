@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { doc, getDoc, collection, getDocs } from "firebase/firestore";
 import { db } from '../firebase';
+import { useCart } from '../context/CartContext';
 import './ProductDetail.css';
 
 export default function ProductDetail() {
   const { id } = useParams();
-
   const [product, setProduct] = useState(null);
   const [allProducts, setAllProducts] = useState([]);
   const [selectedModel, setSelectedModel] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(true);
+
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -137,7 +140,23 @@ export default function ProductDetail() {
 
           {/* CTA Buttons */}
           <div className="cta-buttons">
-            <button className="add-to-cart-btn">ADD TO CART</button>
+            <button
+              className="add-to-cart-btn"
+              onClick={() => {
+                addToCart({
+                  id: product.id,
+                  name: product.name,
+                  newPrice: product.newPrice,
+                  cardImage: product.cardImage,
+                  selectedModel,
+                  selectedColor,
+                  quantity
+                });
+                navigate('/cart');
+              }}
+            >
+              ADD TO CART
+            </button>
             <button className="buy-now-btn">BUY IT NOW</button>
           </div>
 

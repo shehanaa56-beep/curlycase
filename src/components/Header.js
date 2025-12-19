@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 import "./Header.css";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { getCartCount } = useCart();
 
   return (
     <>
@@ -60,10 +62,10 @@ export default function Header() {
             <i className="bi bi-person"></i>
           </Link>
 
-          <span className="cart-icon">
+          <Link to="/cart" className="cart-icon">
             <i className="bi bi-cart"></i>
-            <span className="cart-count">2</span>
-          </span>
+            <span className="cart-count">{getCartCount()}</span>
+          </Link>
 
           {/* HAMBURGER (mobile) */}
           <span className="hamburger" onClick={() => setMenuOpen(true)}>
