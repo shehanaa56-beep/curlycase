@@ -1,75 +1,15 @@
 /* =========================
-   PAGE BASE
-========================= */
-.products-page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 50px 24px;
-  background: #ffffff;
-  font-family: 'Inter', 'Helvetica', sans-serif;
-  color: #0f2e23;
-}
-
-/* TITLE */
-.products-title {
-  font-size: 2.6rem;
-  font-weight: 700;
-  text-align: center;
-  letter-spacing: 0.18em;
-  margin-bottom: 45px;
-}
-
-/* =========================
-   FILTER BAR
-========================= */
-.filters-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-}
-
-.filters-left,
-.filters-right {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.filter-label {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #1f6f54;
-}
-
-.filter-dropdown,
-.sort-dropdown {
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: 1px solid #dcebe4;
-  background: #ffffff;
-  font-size: 0.9rem;
-  cursor: pointer;
-}
-
-.product-count {
-  font-size: 0.9rem;
-  color: #6b7f77;
-}
-
-/* =========================
    PRODUCT GRID
 ========================= */
-.product-grid {
+.products-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr); /* ✅ Desktop: 4 cards */
   gap: 28px;
+  align-items: stretch;
 }
 
 /* =========================
-   PRODUCT CARD (FEATURE STYLE)
+   PRODUCT CARD
 ========================= */
 .product-card {
   background: #ffffff;
@@ -78,6 +18,9 @@
   padding: 18px;
   display: flex;
   flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-height: 420px;
   transition: all 0.35s ease;
   position: relative;
 }
@@ -88,39 +31,23 @@
 }
 
 /* =========================
-   TAG (NEW / SALE)
-========================= */
-.sale-badge,
-.product-tag {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  background: #1f6f54;
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 6px 16px;
-  border-radius: 999px;
-  z-index: 2;
-}
-
-/* =========================
    IMAGE WRAPPER
 ========================= */
 .product-image-container {
   background: #f3fbf7;
   border-radius: 22px;
-  padding: 22px;
-  height: 260px;
+  padding: 18px;
+  height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .product-image {
-  width: 100%;
-  max-height: 220px;
+  max-height: 200px;
+  width: auto;
+  max-width: 100%;
   object-fit: contain;
   transition: transform 0.35s ease;
 }
@@ -139,7 +66,6 @@
   text-align: center;
   margin-bottom: 6px;
   color: #0f2e23;
-  letter-spacing: 0.04em;
 }
 
 /* =========================
@@ -148,14 +74,13 @@
 .product-price {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
 }
 
 .new-price {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: #0f2e23;
 }
 
 .old-price {
@@ -165,30 +90,22 @@
 }
 
 /* =========================
-   MOBILE – SAME AS IMAGE
+   MOBILE: 2 CARDS PER ROW
 ========================= */
 @media (max-width: 768px) {
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr); /* ✅ Mobile: 2 cards */
     gap: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
   }
 
   .product-card {
+    min-height: 320px;
     padding: 14px;
-    border-radius: 22px;
   }
 
   .product-image-container {
     height: 160px;
-    padding: 16px;
-    border-radius: 20px;
+    padding: 14px;
   }
 
   .product-image {
@@ -196,26 +113,6 @@
   }
 
   .product-name {
-    font-size: 0.85rem;
-    margin-bottom: 4px;
+    font-size: 0.9rem;
   }
-
-  .new-price {
-    font-size: 0.95rem;
-  }
-
-  .old-price {
-    font-size: 0.75rem;
-  }
-}
-
-/* =========================
-   REMOVE UNDERLINES
-========================= */
-.product-card a,
-.product-card a *,
-.product-name,
-.product-price span {
-  text-decoration: none !important;
-  color: inherit;
 }

@@ -1,0 +1,322 @@
+/* ===============================
+   ROOT & PAGE
+================================ */
+.admin-dashboard {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 30px 24px;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  color: #1f2937;
+}
+
+.admin-dashboard h1 {
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 40px;
+  letter-spacing: -0.5px;
+}
+
+/* ===============================
+   FORM CARD
+================================ */
+.product-form {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* ===============================
+   FORM GROUP
+================================ */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+/* ===============================
+   INPUTS & SELECT
+================================ */
+.form-group input,
+.form-group select {
+  padding: 14px 14px;
+  border-radius: 12px;
+  border: 1.5px solid #e5e7eb;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #1f7a4d;
+  box-shadow: 0 0 0 3px rgba(31, 122, 77, 0.15);
+}
+
+/* ===============================
+   CHECKBOX
+================================ */
+.checkbox-group {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox-group input {
+  width: 18px;
+  height: 18px;
+  accent-color: #1f7a4d;
+}
+
+.checkbox-group label {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ===============================
+   OPTIONS (MODELS & COLORS)
+================================ */
+.options-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: #eef7f1;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.option-item span {
+  color: #065f46;
+}
+
+/* Remove Button */
+.remove-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.remove-btn:hover {
+  background: #dc2626;
+  transform: scale(1.1);
+}
+
+/* Add Option Button */
+.add-option-btn {
+  margin-top: 10px;
+  align-self: flex-start;
+  background: #1f7a4d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.add-option-btn:hover {
+  background: #16643d;
+  transform: translateY(-1px);
+}
+
+/* ===============================
+   SUBMIT BUTTON
+================================ */
+.submit-btn {
+  grid-column: span 2;
+  margin-top: 10px;
+  padding: 16px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #1f7a4d, #22c55e);
+  color: white;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(34, 197, 94, 0.35);
+}
+
+.submit-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* ===============================
+   MESSAGE
+================================ */
+.admin-dashboard p {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 600;
+  color: #16643d;
+}
+
+/* ===============================
+   PRODUCT LIST
+================================ */
+.product-list {
+  margin-top: 60px;
+}
+
+.product-list h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+/* ===============================
+   PRODUCT ROW
+================================ */
+.product-row {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease;
+}
+
+.product-row:hover {
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   PRODUCT INFO
+================================ */
+.product-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.product-thumb {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #f3f4f6;
+}
+
+.product-info h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.product-info p {
+  margin: 4px 0;
+  font-weight: 600;
+  color: #1f7a4d;
+}
+
+/* ===============================
+   CATEGORY BADGE
+================================ */
+.category-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  border-radius: 999px;
+  background: #eef7f1;
+  color: #065f46;
+  font-weight: 700;
+}
+
+/* ===============================
+   ACTION BUTTONS
+================================ */
+.product-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.edit-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.delete-btn {
+  background: #ef4444;
+  color: white;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .product-form {
+    grid-template-columns: 1fr;
+  }
+
+  .submit-btn,
+  .checkbox-group {
+    grid-column: span 1;
+  }
+
+  .product-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .product-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

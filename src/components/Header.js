@@ -56,9 +56,9 @@ export default function Header() {
             <i className="bi bi-search"></i>
           </span>
 
-          <span className="icon">
+          <Link to="/login" className="icon">
             <i className="bi bi-person"></i>
-          </span>
+          </Link>
 
           <span className="cart-icon">
             <i className="bi bi-cart"></i>

@@ -15,6 +15,8 @@ import TrackOrder from './components/TrackOrder';
 import ContactUs from './components/ContactUs';
 import CustomCase from "./components/CustomCase";
 import CustomDetails from "./components/CustomDetails";
+import AdminDashboard from "./components/AdminDashboard";
+import LoginForm from "./components/LoginForm";
 
 function App() {
   return (
@@ -38,6 +40,8 @@ function App() {
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/custom-case" element={<CustomCase />} />
           <Route path="/custom-details" element={<CustomDetails />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </div>
     </Router>
