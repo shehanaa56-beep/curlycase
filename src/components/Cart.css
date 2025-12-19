@@ -245,3 +245,16 @@
     order: 5;
   }
 }
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font-size: 13px;
+  color: #0a7cff;
+  text-decoration: none;
+}
+
+.download-btn:hover {
+  text-decoration: underline;
+}

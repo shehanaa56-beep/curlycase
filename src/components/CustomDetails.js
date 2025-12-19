@@ -1,7 +1,12 @@
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import './CustomDetails.css';
 
 export default function CustomDetails() {
+  const navigate = useNavigate();
+  const { addToCart } = useCart();
+
   const [uploadedImage, setUploadedImage] = useState(null);
   const [selectedBrand, setSelectedBrand] = useState('');
   const [selectedMaterial, setSelectedMaterial] = useState('Metal Glass Case');
@@ -52,6 +57,24 @@ export default function CustomDetails() {
 
   const zoomIn = () => setScale((s) => Math.min(s + 0.1, 3));
   const zoomOut = () => setScale((s) => Math.max(s - 0.1, 0.5));
+
+  const handleAddToCart = () => {
+    const item = {
+      id: 'custom-case',
+      name: 'Custom Case',
+      selectedModel: selectedBrand,
+      selectedColor: selectedMaterial,
+      quantity: quantity,
+      newPrice: 'Rs. 499.00',
+      oldPrice: 'Rs. 699.00',
+      image: '/images/cru.png',
+      uploadedImage: uploadedImage,
+      position: position,
+      scale: scale,
+    };
+    addToCart(item);
+    navigate('/cart');
+  };
 
   return (
     <div className="custom-details-page">
@@ -174,7 +197,7 @@ export default function CustomDetails() {
               hidden
             />
 
-            <button className="add-to-cart-btn">
+            <button className="add-to-cart-btn" onClick={handleAddToCart}>
               <i className="bi bi-cart3"></i> ADD TO CART
             </button>
           </div>

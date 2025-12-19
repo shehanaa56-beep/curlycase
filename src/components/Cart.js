@@ -42,14 +42,29 @@ export default function Cart() {
                 key={`${item.id}-${item.selectedModel}-${item.selectedColor}`}
                 className="cart-item"
               >
+                {/* ✅ IMAGE FIX */}
                 <div className="item-image">
-                  <img src={item.cardImage} alt={item.name} />
+                  <img
+                    src={item.uploadedImage || item.cardImage}
+                    alt={item.name}
+                  />
                 </div>
 
                 <div className="item-details">
                   <h3>{item.name}</h3>
                   <p>Model: {item.selectedModel}</p>
                   <p>Color: {item.selectedColor}</p>
+
+                  {/* ✅ DOWNLOAD BUTTON (CUSTOM CASE ONLY) */}
+                  {item.uploadedImage && (
+                    <a
+                      href={item.uploadedImage}
+                      download="custom-case-image.png"
+                      className="download-btn"
+                    >
+                      <i className="bi bi-download"></i> Download Image
+                    </a>
+                  )}
                 </div>
 
                 <div className="item-price">

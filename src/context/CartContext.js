@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { collection, addDoc } from "firebase/firestore";
+import { db } from '../firebase';
 
 const CartContext = createContext();
 
@@ -83,7 +85,7 @@ export const CartProvider = ({ children }) => {
     setCartItems([]);
   };
 
-  const placeOrder = (orderData) => {
+  const placeOrder = async (orderData) => {
     const orderHistory = JSON.parse(localStorage.getItem('orderHistory') || '[]');
     const newOrder = {
       id: `ORD${Date.now()}`,
@@ -95,6 +97,14 @@ export const CartProvider = ({ children }) => {
     };
     orderHistory.push(newOrder);
     localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
+
+    // Save to Firebase
+    try {
+      await addDoc(collection(db, "orders"), newOrder);
+    } catch (error) {
+      console.error("Error saving order to Firebase:", error);
+    }
+
     clearCart();
     return newOrder;
   };

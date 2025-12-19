@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   collection,
   addDoc,
@@ -11,6 +12,7 @@ import { db } from '../firebase';
 import './AdminDashboard.css';
 
 export default function AdminDashboard() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     cardImage: '',              // ✅ card image
@@ -25,6 +27,7 @@ export default function AdminDashboard() {
   });
 
   const [products, setProducts] = useState([]);
+  const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [editingId, setEditingId] = useState(null);
@@ -38,6 +41,17 @@ export default function AdminDashboard() {
       })));
     };
     fetchProducts();
+  }, []);
+
+  useEffect(() => {
+    const fetchOrders = async () => {
+      const snapshot = await getDocs(collection(db, "orders"));
+      setOrders(snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      })));
+    };
+    fetchOrders();
   }, []);
 
   const handleChange = (e) => {
@@ -153,7 +167,14 @@ export default function AdminDashboard() {
 
   return (
     <div className="admin-dashboard">
-      <h1>Admin Dashboard</h1>
+      <header className="admin-header">
+        <h1>Admin Dashboard</h1>
+        <div className="dropdown">
+          <button onClick={() => navigate('/order-history')} className="dropdown-btn">
+            Order History
+          </button>
+        </div>
+      </header>
 
       <form onSubmit={handleSubmit} className="product-form">
 
@@ -301,6 +322,8 @@ export default function AdminDashboard() {
           </div>
         )}
       </div>
+
+
     </div>
   );
 }

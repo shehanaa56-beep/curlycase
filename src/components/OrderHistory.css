@@ -76,13 +76,34 @@
 
 .order-item {
   display: flex;
-  justify-content: space-between;
-  padding: 5px 0;
+  align-items: center;
+  padding: 10px 0;
   border-bottom: 1px solid #eee;
+  gap: 15px;
 }
 
 .order-item:last-child {
   border-bottom: none;
+}
+
+.item-thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.order-item div {
+  flex: 1;
+}
+
+.order-item div span {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.order-item div span:first-child {
+  font-weight: bold;
 }
 
 .order-total {

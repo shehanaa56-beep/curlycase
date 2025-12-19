@@ -1,12 +1,7 @@
-# TODO List for Checkout to Payment to Order History Flow
+# TODO: Implement Add to Cart for Custom Case
 
-## Tasks
-- [x] Create Payment.js component with payment options (Cash on Delivery and UPI)
-- [x] Create Payment.css for styling
-- [x] Create Payment.js component logic
-- [x] Create Payment.js component file
-- [x] Modify Checkout.js to navigate to /payment on Place Order button click
-- [x] Add /payment route in App.js
-- [x] Implement payment confirmation logic in Payment.js to navigate to order history
-- [x] Update CartContext.js to handle order placement and history
-- [x] Test the complete flow from checkout to order history
+1. [x] Import useNavigate and useCart in CustomDetails.js
+2. [x] Add onClick handler to ADD TO CART button
+3. [x] Create item object with custom details (image, brand, material, quantity, position, scale)
+4. [x] Call addToCart and navigate to /cart
+5. [x] Test the functionality
