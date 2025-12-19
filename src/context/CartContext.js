@@ -83,6 +83,22 @@ export const CartProvider = ({ children }) => {
     setCartItems([]);
   };
 
+  const placeOrder = (orderData) => {
+    const orderHistory = JSON.parse(localStorage.getItem('orderHistory') || '[]');
+    const newOrder = {
+      id: `ORD${Date.now()}`,
+      date: new Date().toISOString().split('T')[0],
+      items: cartItems,
+      total: getCartTotal(),
+      status: 'Pending',
+      ...orderData
+    };
+    orderHistory.push(newOrder);
+    localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
+    clearCart();
+    return newOrder;
+  };
+
   /* ✅ FIXED TOTAL CALCULATION */
   const getCartTotal = () => {
     return cartItems.reduce((total, item) => {
@@ -101,6 +117,7 @@ export const CartProvider = ({ children }) => {
     removeFromCart,
     updateQuantity,
     clearCart,
+    placeOrder,
     getCartTotal,
     getCartCount
   };

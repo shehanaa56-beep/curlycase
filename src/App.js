@@ -20,6 +20,8 @@ import CustomCase from "./components/CustomCase";
 import CustomDetails from "./components/CustomDetails";
 import AdminDashboard from "./components/AdminDashboard";
 import LoginForm from "./components/LoginForm";
+import Payment from "./components/Payment";
+import OrderHistory from "./components/OrderHistory";
 
 function App() {
   return (
@@ -48,6 +50,8 @@ function App() {
             <Route path="/custom-details" element={<CustomDetails />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/payment" element={<Payment />} />
+            <Route path="/order-history" element={<OrderHistory />} />
           </Routes>
         </div>
       </Router>

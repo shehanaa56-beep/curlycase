@@ -1,15 +1,12 @@
-# Checkout Implementation TODO
+# TODO List for Checkout to Payment to Order History Flow
 
-## Completed Tasks
-- [x] Create Checkout.js component with shipping address form and order summary
-- [x] Add Checkout route in App.js
-- [x] Create Checkout.css for styling
-- [x] Import Checkout component in App.js
-- [x] Fix compilation error by creating missing Checkout.css file
-- [x] Application running successfully without errors
-
-## Pending Tasks
-- [x] Test the checkout flow by running the application
-- [ ] Verify that clicking "Proceed to Checkout" from cart navigates to checkout page
-- [ ] Ensure form validation works properly
-- [ ] Add payment integration if needed (currently just shows alert on submit)
+## Tasks
+- [x] Create Payment.js component with payment options (Cash on Delivery and UPI)
+- [x] Create Payment.css for styling
+- [x] Create Payment.js component logic
+- [x] Create Payment.js component file
+- [x] Modify Checkout.js to navigate to /payment on Place Order button click
+- [x] Add /payment route in App.js
+- [x] Implement payment confirmation logic in Payment.js to navigate to order history
+- [x] Update CartContext.js to handle order placement and history
+- [x] Test the complete flow from checkout to order history

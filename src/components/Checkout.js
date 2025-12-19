@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import './Checkout.css';
 
@@ -10,6 +11,7 @@ const parsePrice = (price) => {
 
 export default function Checkout() {
   const { cartItems, getCartTotal } = useCart();
+  const navigate = useNavigate();
 
   const [shippingAddress, setShippingAddress] = useState({
     name: '',
@@ -32,7 +34,7 @@ export default function Checkout() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Order placed successfully!');
+    navigate('/payment');
   };
 
   return (
