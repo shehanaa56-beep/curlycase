@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #113e14 0%, #0b5c10 100%);
   padding: 20px;
 }
 
@@ -53,7 +53,7 @@
 }
 
 .login-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #18913a 0%, #035310 100%);
   color: white;
   border: none;
   padding: 15px 30px;
