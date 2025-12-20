@@ -309,3 +309,21 @@
     padding: 3px;
   }
 }
+/* FORCE HEADER ICON COLORS (DESKTOP + MOBILE) */
+.header-icons i {
+  color: #000000 !important;
+}
+
+/* If icons are inside links */
+.header-icons a i {
+  color: #000000 !important;
+}
+
+/* Mobile tap / focus fix */
+.header-icons a:active i,
+.header-icons a:focus i {
+  color: #000000 !important;
+}
+.header-icons i:hover {
+  color: var(--green-main);
+}
