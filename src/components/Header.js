@@ -40,7 +40,7 @@ export default function Header() {
         {/* LOGO */}
         <div className="logo">
           <img src="/images/cu.JPG" alt="Curly Case Logo" className="logo-image" />
-          Curly Case
+          CurlyCase
         </div>
 
         {/* DESKTOP NAV */}
