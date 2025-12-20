@@ -1,6 +1,9 @@
 import "./Hero.css";
+import { useNavigate } from 'react-router-dom';
 
 export default function Hero() {
+  const navigate = useNavigate();
+
   return (
     <section className="hero">
       <div className="hero-container">
@@ -21,10 +24,10 @@ export default function Hero() {
           </p>
 
           <div className="hero-buttons">
-            <button className="btn-primary">
+            <button className="btn-primary" onClick={() => navigate('/products')}>
               Shop Now <span>→</span>
             </button>
-            <button className="btn-outline">Create Custom Case</button>
+            <button className="btn-outline" onClick={() => navigate('/custom-case')}>Create Custom Case</button>
           </div>
 
           <div className="hero-stats">
