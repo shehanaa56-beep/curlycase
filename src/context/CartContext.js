@@ -13,9 +13,10 @@ export const useCart = () => {
 };
 
 /* ✅ SAFE PRICE PARSER (FIX) */
-const parsePrice = (price) => {
+export const parsePrice = (price) => {
   if (!price) return 0;
-  return Number(price.toString().replace(/[₹Rs.,\s]/g, ''));
+  const cleaned = price.toString().replace(/[₹Rs\s]/g, '').replace(',', '.');
+  return Number(cleaned);
 };
 
 export const CartProvider = ({ children }) => {
@@ -87,20 +88,48 @@ export const CartProvider = ({ children }) => {
 
   const placeOrder = async (orderData) => {
     const orderHistory = JSON.parse(localStorage.getItem('orderHistory') || '[]');
+
+    // Create a lightweight version of cart items for storage (remove large images)
+    const lightweightItems = cartItems.map(item => ({
+      ...item,
+      cardImage: undefined, // Remove potentially large image data
+      uploadedImage: item.uploadedImage // Keep uploaded images for order history
+    }));
+
     const newOrder = {
       id: `ORD${Date.now()}`,
       date: new Date().toISOString().split('T')[0],
-      items: cartItems,
+      items: lightweightItems,
       total: getCartTotal(),
       status: 'Pending',
       ...orderData
     };
-    orderHistory.push(newOrder);
-    localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
 
-    // Save to Firebase
+    orderHistory.push(newOrder);
+
+    // Keep only the last 50 orders to prevent quota exceeded errors
+    const recentOrders = orderHistory.slice(-50);
+
     try {
-      await addDoc(collection(db, "orders"), newOrder);
+      localStorage.setItem('orderHistory', JSON.stringify(recentOrders));
+    } catch (error) {
+      console.error("Error saving to localStorage:", error);
+      // If quota exceeded, clear old orders and try again with just the new order
+      if (error.name === 'QuotaExceededError') {
+        try {
+          localStorage.setItem('orderHistory', JSON.stringify([newOrder]));
+        } catch (retryError) {
+          console.error("Failed to save even single order:", retryError);
+        }
+      }
+    }
+
+    // Save to Firebase (keep full order data including images)
+    try {
+      await addDoc(collection(db, "orders"), {
+        ...newOrder,
+        items: cartItems // Include full items with images for Firebase
+      });
     } catch (error) {
       console.error("Error saving order to Firebase:", error);
     }

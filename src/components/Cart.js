@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
+import { useCart, parsePrice } from '../context/CartContext';
 import './Cart.css';
 
 export default function Cart() {
@@ -44,10 +44,10 @@ export default function Cart() {
               >
                 {/* ✅ IMAGE FIX */}
                 <div className="item-image">
-                  <img
-                    src={item.uploadedImage || item.cardImage}
-                    alt={item.name}
-                  />
+                 <img
+  src={item.uploadedImage || item.cardImage}
+  alt={item.name}
+/>
                 </div>
 
                 <div className="item-details">
@@ -55,21 +55,12 @@ export default function Cart() {
                   <p>Model: {item.selectedModel}</p>
                   <p>Color: {item.selectedColor}</p>
 
-                  {/* ✅ DOWNLOAD BUTTON (CUSTOM CASE ONLY) */}
-                  {item.uploadedImage && (
-                    <a
-                      href={item.uploadedImage}
-                      download="custom-case-image.png"
-                      className="download-btn"
-                    >
-                      <i className="bi bi-download"></i> Download Image
-                    </a>
-                  )}
                 </div>
 
-                <div className="item-price">
-                  Rs. {item.newPrice.replace('Rs. ', '')}
-                </div>
+             <div className="item-price">
+  Rs. {parsePrice(item.newPrice).toLocaleString()}
+</div>
+
 
                 <div className="item-quantity">
                   <button
@@ -103,15 +94,9 @@ export default function Cart() {
                   </button>
                 </div>
 
-                <div className="item-total">
-                  Rs. {(
-                    parseFloat(
-                      item.newPrice
-                        .replace('Rs. ', '')
-                        .replace(',', '')
-                    ) * item.quantity
-                  ).toLocaleString()}
-                </div>
+              <div className="item-total">
+  Rs. {(parsePrice(item.newPrice) * item.quantity).toLocaleString()}
+</div>
 
                 <button
                   className="remove-btn"

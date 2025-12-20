@@ -11,11 +11,35 @@ export default function OrderHistory() {
 
   useEffect(() => {
     const fetchOrders = async () => {
-      const snapshot = await getDocs(collection(db, "orders"));
-      setOrders(snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      })));
+      // Load orders from localStorage
+      const localOrders = JSON.parse(localStorage.getItem('orderHistory') || '[]');
+
+      // Fetch orders from Firebase
+      let firebaseOrders = [];
+      try {
+        const snapshot = await getDocs(collection(db, "orders"));
+        firebaseOrders = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+      } catch (error) {
+        console.error("Error fetching orders from Firebase:", error);
+      }
+
+      // Combine orders without duplicates based on order ID
+      const combinedOrders = new Map();
+
+      // Add localStorage orders first
+      localOrders.forEach(order => {
+        combinedOrders.set(order.id, order);
+      });
+
+      // Add or update with Firebase orders
+      firebaseOrders.forEach(order => {
+        combinedOrders.set(order.id, order);
+      });
+
+      setOrders(Array.from(combinedOrders.values()));
     };
     fetchOrders();
   }, []);
@@ -40,7 +64,15 @@ export default function OrderHistory() {
                 <div className="order-items">
                   {order.items.map((item, index) => (
                     <div key={index} className="order-item">
-                      <img src={item.cardImage} alt={item.name} className="item-thumb" />
+                      {item.uploadedImage ? (
+                        <img src={item.uploadedImage} alt={item.name} className="item-thumb" />
+                      ) : item.cardImage ? (
+                        <img src={item.cardImage} alt={item.name} className="item-thumb" />
+                      ) : (
+                        <div className="item-thumb-placeholder">
+                          <span>{item.name.charAt(0)}</span>
+                        </div>
+                      )}
                       <div>
                         <span>{item.name}</span>
                         <span>Model: {item.selectedModel}, Color: {item.selectedColor}</span>

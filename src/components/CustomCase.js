@@ -59,23 +59,27 @@ export default function CustomDetails() {
   const zoomIn = () => setScale((s) => Math.min(s + 0.1, 3));
   const zoomOut = () => setScale((s) => Math.max(s - 0.1, 0.5));
 
-  const handleAddToCart = () => {
-    const item = {
-      id: 'custom-case',
-      name: 'Custom Case',
-      selectedModel: selectedModel, // ✅ FIXED (was brand earlier)
-      selectedColor: selectedMaterial,
-      quantity: quantity,
-      newPrice: 'Rs. 499.00',
-      oldPrice: 'Rs. 699.00',
-      cardImage: '/images/cru.png',
-      uploadedImage,
-      position,
-      scale,
-    };
-    addToCart(item);
-    navigate('/cart');
+const handleAddToCart = () => {
+  const item = {
+    id: 'custom-case',
+    name: 'Custom Case',
+    selectedModel: selectedModel,
+    selectedColor: selectedMaterial,
+    quantity: quantity,
+
+    // ✅ FIX: price must be NUMBER (not string)
+    newPrice: 499,
+    oldPrice: 699,
+
+    cardImage: '/images/cru.png',
+    uploadedImage,
+    position,
+    scale,
   };
+
+  addToCart(item);
+  navigate('/cart');
+};
 
   return (
     <div className="custom-details-page">

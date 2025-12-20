@@ -158,7 +158,7 @@ export default function Checkout() {
                     className="order-item"
                   >
                     <div className="item-image">
-                      <img src={item.cardImage} alt={item.name} />
+                      <img src={item.uploadedImage || item.cardImage} alt={item.name} />
                     </div>
 
                     <div className="item-details">

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { collection, query, where, onSnapshot } from "firebase/firestore";
 import { db } from '../firebase';
+import { parsePrice } from '../context/CartContext';
 import "./FeaturedProducts.css";
 
 export default function FeaturedProducts() {

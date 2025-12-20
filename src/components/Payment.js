@@ -38,15 +38,17 @@ export default function Payment() {
           <div className="order-items">
             {cartItems.map((item) => (
               <div key={`${item.id}-${item.selectedModel}-${item.selectedColor}`} className="order-item">
-                <div className="item-image">
-                  <img src={item.cardImage} alt={item.name} />
-                </div>
-                <div className="item-details">
-                  <h4>{item.name}</h4>
-                  <p>Model: {item.selectedModel}</p>
-                  <p>Color: {item.selectedColor}</p>
-                  <p>Quantity: {item.quantity}</p>
-                </div>
+                <>
+                  <div className="item-image">
+                    <img src={item.uploadedImage || item.cardImage} alt={item.name} />
+                  </div>
+                  <div className="item-details">
+                    <h4>{item.name}</h4>
+                    <p>Model: {item.selectedModel}</p>
+                    <p>Color: {item.selectedColor}</p>
+                    <p>Quantity: {item.quantity}</p>
+                  </div>
+                </>
               </div>
             ))}
           </div>

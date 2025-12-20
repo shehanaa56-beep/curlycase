@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { doc, getDoc, collection, getDocs } from "firebase/firestore";
 import { db } from '../firebase';
-import { useCart } from '../context/CartContext';
+import { useCart, parsePrice } from '../context/CartContext';
 import './ProductDetail.css';
 
 export default function ProductDetail() {
@@ -89,7 +89,7 @@ export default function ProductDetail() {
             {product.onSale && (
               <span className="old-price">{product.oldPrice}</span>
             )}
-            <span className="new-price">{product.newPrice}</span>
+            <span className="new-price">Rs. {parsePrice(product.newPrice).toLocaleString()}</span>
             {product.onSale && <span className="sale-badge">Sale</span>}
             <p className="tax-info">
               Taxes included. Shipping calculated at checkout.
@@ -206,7 +206,7 @@ export default function ProductDetail() {
               <h3>{p.name}</h3>
               <div className="price">
                 {p.onSale && <span className="old">{p.oldPrice}</span>}
-                <span className="new">{p.newPrice}</span>
+                <span className="new">Rs. {parsePrice(p.newPrice).toLocaleString()}</span>
               </div>
             </Link>
           ))}
