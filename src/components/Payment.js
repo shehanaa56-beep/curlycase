@@ -32,7 +32,7 @@ export default function Payment() {
       alert('Payment confirmed via Cash on Delivery');
 
       // Place order and clear cart
-      placeOrder({ paymentMethod: selectedPayment });
+      placeOrder({ paymentMethod: selectedPayment, status: 'Paid' });
 
       // Navigate to order history
       navigate('/order-history');

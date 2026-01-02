@@ -101,7 +101,7 @@ export const CartProvider = ({ children }) => {
       date: new Date().toISOString().split('T')[0],
       items: lightweightItems,
       total: getCartTotal(),
-      status: 'Pending',
+      status: orderData.status || 'Pending',
       ...orderData
     };
 
