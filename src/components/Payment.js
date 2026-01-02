@@ -27,63 +27,67 @@ export default function Payment() {
       return;
     }
 
+    // ✅ Cash on Delivery (unchanged)
     if (selectedPayment === 'cash') {
-      // Simulate payment processing for cash on delivery
       alert('Payment confirmed via Cash on Delivery');
 
-      // Place order and clear cart
-      placeOrder({ paymentMethod: selectedPayment, status: 'Paid' });
+      placeOrder({
+        paymentMethod: selectedPayment,
+        status: 'Paid'
+      });
 
-      // Navigate to order history
       navigate('/order-history');
-    } else {
-      // Razorpay payment methods
-      if (!razorpayLoaded) {
-        alert('Razorpay is still loading. Please try again.');
-        return;
-      }
-
-      let method = '';
-      if (selectedPayment === 'upi') method = 'upi';
-      else if (selectedPayment === 'card') method = 'card';
-      else if (selectedPayment === 'netbanking') method = 'netbanking';
-      else if (selectedPayment === 'wallet') method = 'wallet';
-
-      const options = {
-        key: 'rzp_live_RyyKhZoXapgMTE', // Live key
-        amount: getCartTotal() * 100, // Amount in paise
-        currency: 'INR',
-        name: 'CurlyCase',
-        description: 'Payment for your order',
-        method: method,
-        handler: function (response) {
-          // Payment successful
-          alert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
-
-          // Place order and clear cart
-          placeOrder({ paymentMethod: selectedPayment, paymentId: response.razorpay_payment_id });
-
-          // Navigate to order history
-          navigate('/order-history');
-        },
-        prefill: {
-          name: 'Customer Name',
-          email: 'customer@example.com',
-          contact: '9999999999'
-        },
-        theme: {
-          color: '#3399cc'
-        },
-        modal: {
-          ondismiss: function() {
-            alert('Payment cancelled');
-          }
-        }
-      };
-
-      const rzp = new window.Razorpay(options);
-      rzp.open();
+      return;
     }
+
+    // ✅ Razorpay payments
+    if (!razorpayLoaded) {
+      alert('Razorpay is still loading. Please try again.');
+      return;
+    }
+
+    const options = {
+      key: 'rzp_live_RyyKhZoXapgMTE', // ✅ LIVE KEY
+      amount: getCartTotal() * 100, // paise
+      currency: 'INR',
+      name: 'CurlyCase',
+      description: 'Payment for your order',
+
+      // ✅ REQUIRED FOR MOBILE UPI
+      callback_url: 'https://www.curlycase.store/payment-success',
+      redirect: true,
+
+      handler: function (response) {
+        alert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
+
+        placeOrder({
+          paymentMethod: selectedPayment,
+          paymentId: response.razorpay_payment_id,
+          status: 'Paid'
+        });
+
+        navigate('/order-history');
+      },
+
+      prefill: {
+        name: 'Customer Name',
+        email: 'customer@example.com',
+        contact: '9999999999'
+      },
+
+      theme: {
+        color: '#3399cc'
+      },
+
+      modal: {
+        ondismiss: function () {
+          alert('Payment cancelled');
+        }
+      }
+    };
+
+    const rzp = new window.Razorpay(options);
+    rzp.open();
   };
 
   return (
@@ -93,23 +97,30 @@ export default function Payment() {
 
         <div className="order-summary">
           <h2>Order Summary</h2>
+
           <div className="order-items">
             {cartItems.map((item) => (
-              <div key={`${item.id}-${item.selectedModel}-${item.selectedColor}`} className="order-item">
-                <>
-                  <div className="item-image">
-                    <img src={item.uploadedImage || item.cardImage} alt={item.name} />
-                  </div>
-                  <div className="item-details">
-                    <h4>{item.name}</h4>
-                    <p>Model: {item.selectedModel}</p>
-                    <p>Color: {item.selectedColor}</p>
-                    <p>Quantity: {item.quantity}</p>
-                  </div>
-                </>
+              <div
+                key={`${item.id}-${item.selectedModel}-${item.selectedColor}`}
+                className="order-item"
+              >
+                <div className="item-image">
+                  <img
+                    src={item.uploadedImage || item.cardImage}
+                    alt={item.name}
+                  />
+                </div>
+
+                <div className="item-details">
+                  <h4>{item.name}</h4>
+                  <p>Model: {item.selectedModel}</p>
+                  <p>Color: {item.selectedColor}</p>
+                  <p>Quantity: {item.quantity}</p>
+                </div>
               </div>
             ))}
           </div>
+
           <div className="total">
             <strong>Total: Rs. {getCartTotal().toLocaleString()}</strong>
           </div>
@@ -117,6 +128,7 @@ export default function Payment() {
 
         <div className="payment-options">
           <h2>Select Payment Method</h2>
+
           <div className="payment-methods">
             <label className="payment-radio">
               <input
@@ -128,6 +140,7 @@ export default function Payment() {
               />
               UPI
             </label>
+
             <label className="payment-radio">
               <input
                 type="radio"
@@ -136,8 +149,9 @@ export default function Payment() {
                 checked={selectedPayment === 'card'}
                 onChange={(e) => handlePaymentSelect(e.target.value)}
               />
-              Debit/Credit Card
+              Debit / Credit Card
             </label>
+
             <label className="payment-radio">
               <input
                 type="radio"
@@ -148,6 +162,7 @@ export default function Payment() {
               />
               Net Banking
             </label>
+
             <label className="payment-radio">
               <input
                 type="radio"
