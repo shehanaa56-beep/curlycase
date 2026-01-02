@@ -50,7 +50,7 @@ export default function Payment() {
       else if (selectedPayment === 'wallet') method = 'wallet';
 
       const options = {
-        key: 'rzp_test_RyxU5VFLFDo0Vj', // Test key
+        key: 'rzp_live_RyyKhZoXapgMTE', // Live key
         amount: getCartTotal() * 100, // Amount in paise
         currency: 'INR',
         name: 'CurlyCase',
